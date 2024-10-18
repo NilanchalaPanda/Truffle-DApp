@@ -60,7 +60,7 @@ function App() {
     if (contract && title && ipfsHash && rentPrice > 0) {
       await contract.methods
         .uploadSong(title, ipfsHash, rentPrice)
-        .send({ from: account });
+        .send({ from: account, gas: 300000 });
       window.location.reload(); // Reload to fetch the latest data
     } else {
       console.error("Invalid input");
